@@ -1,7 +1,6 @@
 import pytest
-from data.urls import *
-from pages.main_page import *
-from locators.locators import MainPageLocators as mpl
+import allure
+from pages.main_page import MainPage
 from data.answers import *
 
 
@@ -22,6 +21,6 @@ class TestMainPage:
                              )
     def test_main_page_important_questions(self, driver, number, expected_answer):
         main_page = MainPage(driver)
-        main_page.get_url(SCOOTER_MAIN_PAGE)
+        main_page.get_main_page()
         main_page.accept_cookies()
-        main_page.check_answer_equals_expected_answer(mpl.QUESTION, mpl.ANSWER, number, expected_answer)
+        main_page.check_answer_equals_expected_answer(number, expected_answer)

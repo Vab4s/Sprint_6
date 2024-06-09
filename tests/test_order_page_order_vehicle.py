@@ -1,6 +1,5 @@
 import pytest
 import allure
-from data.urls import *
 from pages.main_page import MainPage
 from pages.order_page import OrderPage
 from locators.locators import MainPageLocators as mpl
@@ -18,7 +17,7 @@ class TestOrderPage:
                              )
     def test_fill_form(self, driver, button, first_name, second_name, address, metro, phone, delivery_data, comment):
         main_page = MainPage(driver)
-        main_page.get_url(SCOOTER_MAIN_PAGE)
+        main_page.get_main_page()
         main_page.accept_cookies()
         main_page.scroll_to_element(button)
         main_page.click_on_element(button)

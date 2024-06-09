@@ -27,10 +27,6 @@ class BasePage:
     def find_element(self, webelement):
         return self.wait.until(expected_conditions.visibility_of_element_located(webelement))
 
-    @allure.step('Проверяем, что элемент отображается')
-    def check_element_displayed(self, web_element):
-        return self.wait.until(expected_conditions.visibility_of_element_located(web_element)).is_displayed()
-
     @allure.step('Скролл до элемента')
     def scroll_to_element(self, web_element):
         element = self.wait.until(expected_conditions.visibility_of_element_located(web_element))
@@ -53,3 +49,11 @@ class BasePage:
         method, locator = method_locator
         locator = locator.format(num)
         return (method, locator)
+
+    @allure.step('Клик на логотип Яндекс')
+    def click_on_yandex_logo(self):
+        self.click_on_element(cl.YANDEX_LOGO)
+
+    @allure.step('Клик на логотип Самокат')
+    def click_on_samokat_logo(self):
+        self.click_on_element(cl.SAMOKAT_LOGO)

@@ -1,10 +1,16 @@
 import allure
 from locators.locators import OrderPageLocators as opl
+from data.urls import SCOOTER_ORDER_PAGE
 from selenium.webdriver import Keys
 from pages.base_page import BasePage
 
 
 class OrderPage(BasePage):
+
+    @allure.step('Открытие страницы заказа сервиса Самокат"')
+    def get_order_page(self):
+        self.get_url(SCOOTER_ORDER_PAGE)
+
     @allure.step('Заполнение 1/2 формы заказа')
     def fill_order_form_page_one(self, first_name, second_name, destination, metro, phone):
         self.fill_input(opl.INPUT_FIRST_NAME, first_name)
